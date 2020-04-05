@@ -1,0 +1,19 @@
+<h2>All clothes</h2>
+<div *ngFor = "let clothes of clothesList" class = "clothesClass">
+    <p (click)= "onSelect(clothes)" >
+        <a [routerLink]="['/clothes', clothes.id ]" >{{clothes.name}}</a>
+    </p>
+    <h3>
+        <img [src]="clothes.imageLink" class = "clothesImage">
+        <p *ngIf = "clothes.description">
+            Description: {{clothes.description}}
+        </p>
+        <p>
+            Price: {{clothes.price}}
+        </p>
+        <button (click)= "onAddToCart(clothes)">Add to Cart</button>
+    </h3>
+    <hr class = "clothesDivider">
+</div>
+
+
