@@ -1,0 +1,20 @@
+#myBtn {
+  display: block;
+  position: fixed;
+  bottom: 6%;
+  right: 3%;
+  z-index: 2;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid rgba(0, 0, 0, 0);
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+#myBtn:hover {
+  border: 1px solid black;
+}
+
+.nav{
+  transform: translate(-1%, 0%);
+}

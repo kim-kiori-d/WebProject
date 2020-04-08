@@ -9,8 +9,11 @@
     height: 300px;
 }
 .clothesDivider {
-    background-color: mediumaquamarine;
+    background-color: darkgray;
     width: 100%;
     height: 2px;
     border: none;
+}
+#cart{
+  transform: translate(1%, 14%);
 }

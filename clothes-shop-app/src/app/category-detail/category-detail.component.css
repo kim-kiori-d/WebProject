@@ -22,9 +22,9 @@
 .categoryList{
     color: gray;
     margin-left: 30px;
-    letter-spacing: 2px; 
-    text-decoration: none; 
-   
+    letter-spacing: 2px;
+    text-decoration: none;
+
 }
 ul{
     display: flex;
@@ -52,4 +52,7 @@ ul{
 }
 .textBlock{
     text-align: center;
+}
+.catDet{
+    transform: translate(0, 4%);
 }
