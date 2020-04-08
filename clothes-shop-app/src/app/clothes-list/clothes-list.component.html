@@ -1,5 +1,4 @@
-<h2>All clothes</h2>
-<div *ngFor = "let clothes of clothesList" class = "clothesClass">
+<div id = "allClothes" *ngFor = "let clothes of clothesList" class = "clothesClass">
     <p (click)= "onSelect(clothes)" >
         <a [routerLink]="['/clothes', clothes.id ]" >{{clothes.name}}</a>
     </p>

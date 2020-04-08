@@ -2,7 +2,9 @@
     <div *ngIf = "selectedClothesId == clothes.id">
         <h2>{{clothes.name}}</h2>
         <h3>
-            <img [src]="clothes.imageLink" class = "clothesImage">
+            <div class="zoomBOut">
+              <img [src]="clothes.imageLink" class = "clothesImage">
+            </div>
             <p *ngIf = "clothes.description">
                 Description: {{clothes.description}}
             </p>
