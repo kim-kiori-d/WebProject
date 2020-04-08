@@ -1,8 +1,9 @@
-<div *ngFor = "let clothes of clothesList" >
+<div *ngFor = "let clothes of clothesList">
     <div *ngIf = "selectedClothesId == clothes.id" class= "clothesItem">
-        
-        <div><img [src]="clothes.imageLink"></div>
-        
+
+        <div class="zoomBOut">
+          <img [src]="clothes.imageLink" class = "clothesImage">
+        </div>
         <nav ><h2 class="text" id="name">{{clothes.name}}</h2>
         <p id="price" class="text">
             {{clothes.price}} тнг.

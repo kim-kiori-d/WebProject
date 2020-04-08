@@ -10,6 +10,10 @@ import { CartComponent } from './cart/cart.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ClothesDetailComponent } from './clothes-detail/clothes-detail.component';
 import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import { BottomNavigationComponent } from './bottom-navigation/bottom-navigation.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './login/login.component';
+
 
 @NgModule({
   declarations: [
@@ -20,7 +24,10 @@ import { CategoryDetailComponent } from './category-detail/category-detail.compo
     CartComponent,
     NavigationComponent,
     ClothesDetailComponent,
-    CategoryDetailComponent
+    CategoryDetailComponent,
+    BottomNavigationComponent,
+    RegistrationComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

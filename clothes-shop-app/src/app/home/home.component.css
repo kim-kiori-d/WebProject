@@ -1,6 +1,4 @@
-
-.bg-img
-{
+.bg-img {
     min-height: 100vh;
     width: 100%;
     background-image: url('https://lichi-a.akamaihd.net/hp/5/409/5013/i0.jpg');
@@ -8,4 +6,5 @@
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    transform: translate(-0.6%, 0%);
 }
