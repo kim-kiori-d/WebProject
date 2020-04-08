@@ -40,3 +40,26 @@ p,h2{
     letter-spacing: 1px;
     font-size: x-small;
 }
+.clothDet{
+    transform: translate(0%, 5%);
+}
+
+.clothesImage {
+  width: 565px;
+  height: 754px;
+  background-position: center;
+  background-size: cover;
+  transition-duration: 1s;
+  transition-timing-function: ease;
+}
+
+.clothesImage:hover{
+  transform: scale(1.5);
+}
+
+.zoomBOut {
+  width: 847.5px;
+  height: 1131px;
+  overflow: hidden;
+  position: relative;
+}
