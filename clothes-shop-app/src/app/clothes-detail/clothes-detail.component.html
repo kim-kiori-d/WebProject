@@ -1,17 +1,18 @@
-<div *ngFor = "let clothes of clothesList" class = "clothesClass">
-    <div *ngIf = "selectedClothesId == clothes.id">
-        <h2>{{clothes.name}}</h2>
-        <h3>
-            <div class="zoomBOut">
-              <img [src]="clothes.imageLink" class = "clothesImage">
-            </div>
-            <p *ngIf = "clothes.description">
-                Description: {{clothes.description}}
+<div *ngFor = "let clothes of clothesList" >
+    <div *ngIf = "selectedClothesId == clothes.id" class= "clothesItem">
+        
+        <div><img [src]="clothes.imageLink"></div>
+        
+        <nav ><h2 class="text" id="name">{{clothes.name}}</h2>
+        <p id="price" class="text">
+            {{clothes.price}} тнг.
+        </p>
+        <p class="text">
+            {{clothes.description}}
             </p>
-            <p>
-                Price: {{clothes.price}}
-            </p>
-            <button (click)= "onAddToCart(clothes)">Add to Cart</button>
-        </h3>
+        <button (click)= "onAddToCart(clothes)" id="card">ДОБАВИТЬ В КОРЗИНУ</button>
+        </nav>
+        <div><img [src]="clothes.imageLink2"></div>
+        <div><img [src]="clothes.imageLink3"></div>
     </div>
 </div>

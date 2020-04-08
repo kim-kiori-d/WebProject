@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Clothes } from './clothes';
 import { clothesList} from './clothes-list';
+import { CATEGORIES } from './categories-list';
 import {Observable, of} from 'rxjs'
 @Injectable({
   providedIn: 'root'
@@ -8,9 +9,19 @@ import {Observable, of} from 'rxjs'
 export class ClothesListService {
 
   clothes = clothesList
+  categories = CATEGORIES;
+
+constructor() { }
 
   getClothesList(): Observable<Clothes[]> {
-    return of(clothesList);
+    return of(this.clothes);
   }
-  constructor() { }
+  getClothesByCategory(id): Observable<Clothes[]>{
+    const neededClothes = this.clothes.filter(cloth => cloth.category === id);
+    return of(neededClothes);
+  }
+  getCategoryName(id): Observable<any>{
+    const category = this.categories.find(c => c.id===id);
+    return of(category);
+  }
 }

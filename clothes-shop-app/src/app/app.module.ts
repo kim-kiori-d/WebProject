@@ -9,9 +9,7 @@ import { ClothesListComponent } from './clothes-list/clothes-list.component';
 import { CartComponent } from './cart/cart.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ClothesDetailComponent } from './clothes-detail/clothes-detail.component';
-import { BottomNavigationComponent } from './bottom-navigation/bottom-navigation.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { LoginComponent } from './login/login.component';
+import { CategoryDetailComponent } from './category-detail/category-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,9 +20,7 @@ import { LoginComponent } from './login/login.component';
     CartComponent,
     NavigationComponent,
     ClothesDetailComponent,
-    BottomNavigationComponent,
-    RegistrationComponent,
-    LoginComponent
+    CategoryDetailComponent
   ],
   imports: [
     BrowserModule,
