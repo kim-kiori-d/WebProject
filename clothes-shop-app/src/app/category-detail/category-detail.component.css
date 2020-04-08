@@ -1,6 +1,5 @@
 #title{
     text-align: center;
-    color: gray;
 }
 .clothesClass {
     display: flex;
@@ -30,14 +29,12 @@
 ul{
     display: flex;
     flex-direction: row;
-    margin-left: 8%;
 }
 
 .nameStyle{
     color: black;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: 500;
 }
 .PriceStyle{
     color: black;
@@ -56,4 +53,3 @@ ul{
 .textBlock{
     text-align: center;
 }
-

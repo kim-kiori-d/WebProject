@@ -1,34 +1,42 @@
-.clothesClass {
+.clothesItem{
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    transform: translate(1%, 14%);
+    flex-wrap: wrap;
+    margin-top: 5%;
+}
+.clothesItem>div {
+    cursor: pointer;
+    width: 55%;
+}
+nav{
+    position: fixed;
+    margin-top: 0%;
+    margin-left: 60%;
+}
+img{
+    margin-left: 30%;
+    width: 70%;
+}
+p,h2{
+    font-weight: 400;
+    color: #444;
+    font-family: FuturaBookC,sans-serif;
+    font-style: normal;
 }
 
-.clothesImage {
-    width: 100%;
-    height: 100%;
-    background-position: center;
-    background-size: cover;
-    transition-duration: 1s;
-    transition-timing-function: ease;
-}
+#price, #name, .text{
+    text-align: center;
 
-.clothesImage:hover{
-    transform: scale(1.5);
+    width: 340px;
 }
-
-.zoomBOut {
-    width: 300px;
-    height: 300px;
-    overflow: hidden;
-    position: relative;
-}
-
-.clothesDivider {
-    background-color: mediumaquamarine;
-    width: 100%;
-    height: 2px;
-    border: none;
+#card{
+    margin-left: 22%;
+    height: 35px;
+    width: 65%;
+    background-color: black;
+    border-width: 0px;
+    color: white;
+    font-weight: 600;
+    letter-spacing: 1px;
+    font-size: x-small;
 }
