@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Clothes } from '../clothes';
 import { ClothesListService } from '../clothes-list.service';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../cart.service';
 @Component({
   selector: 'app-clothes-detail',
@@ -10,24 +10,25 @@ import { CartService } from '../cart.service';
 })
 export class ClothesDetailComponent implements OnInit {
 
-  clothesList: Clothes[]
-  selectedClothesId: String
+  clothesList: Clothes[];
+  // tslint:disable-next-line:ban-types
+  selectedClothesId: String;
 
   constructor(private route: ActivatedRoute, private clothesListService: ClothesListService, private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.getClothesList()
+    this.getClothesList();
     this.route.paramMap.subscribe(params => {
-      this.selectedClothesId = params.get("clothesId")
-    })
+      this.selectedClothesId = params.get('clothesId');
+    });
   }
 
   getClothesList(): void {
-    this.clothesListService.getClothesList().subscribe( clothes => this.clothesList = clothes)
+    this.clothesListService.getClothesList().subscribe( clothes => this.clothesList = clothes);
   }
 
   onAddToCart(clothes: Clothes): void {
-    this.cartService.addClothesToCart(clothes)
+    this.cartService.addClothesToCart(clothes);
   }
 
 }

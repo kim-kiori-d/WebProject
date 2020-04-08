@@ -1,5 +1,4 @@
-<h2>Cart</h2>
-<div *ngFor = "let clothes of clothesFromCart" class = "clothesClass">
+<div id = "cart" *ngFor = "let clothes of clothesFromCart" class = "clothesClass">
     <p>{{clothes.name}}</p>
     <h3>
         <img [src]="clothes.imageLink" class = "clothesImage">

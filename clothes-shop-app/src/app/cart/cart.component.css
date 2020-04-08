@@ -14,3 +14,6 @@
     height: 2px;
     border: none;
 }
+#cart{
+    transform: translate(1%, 14%);
+}
