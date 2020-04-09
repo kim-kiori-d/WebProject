@@ -4,3 +4,9 @@
     background: url('https://lichi-a.akamaihd.net/hp/5/409/5013/i0.jpg');
     -webkit-background-size: cover;
 }
+.bg-img2 {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url('https://lichi-a.akamaihd.net/hp/5/401/4939/i0.jpg');
+    -webkit-background-size: cover;
+}
