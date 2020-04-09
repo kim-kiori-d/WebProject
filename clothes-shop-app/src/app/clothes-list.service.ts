@@ -1,27 +1,29 @@
 import { Injectable } from '@angular/core';
 import { Clothes } from './clothes';
-import { clothesList} from './clothes-list';
-import { CATEGORIES } from './categories-list';
-import {Observable, of} from 'rxjs'
+import {Observable} from 'rxjs';
+import { HttpClient} from '@angular/common/http';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ClothesListService {
 
-  clothes = clothesList
-  categories = CATEGORIES;
+  private clothesUrl = 'api/clothes';
+  private categoriesUrl = 'api/categories';
+  clothes: Clothes[];
 
-constructor() { }
+  constructor(
+    private http: HttpClient) { }
 
   getClothesList(): Observable<Clothes[]> {
-    return of(this.clothes);
+    return this.http.get<Clothes[]>(this.clothesUrl);
   }
-  getClothesByCategory(id): Observable<Clothes[]>{
-    const neededClothes = this.clothes.filter(cloth => cloth.category === id);
-    return of(neededClothes);
+  getClothesByCategory(id: number): Observable<Clothes[]> {
+    const url = `${this.clothesUrl}/?category=${id}`;
+    return this.http.get<Clothes[]>(url);
   }
-  getCategoryName(id): Observable<any>{
-    const category = this.categories.find(c => c.id===id);
-    return of(category);
+  getCategoryName(id: number): Observable<any> {
+    const url = `${this.categoriesUrl}/${id}`;
+    return this.http.get(url);
   }
 }

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Category } from '../category';
 import { CategoriesService } from '../categories.service';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute } from '@angular/router';
+
 @Component({
   selector: 'app-categories',
   templateUrl: './categories.component.html',
@@ -9,15 +10,15 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class CategoriesComponent implements OnInit {
 
-  constructor (private route: ActivatedRoute, private categoriesService: CategoriesService){}
+  constructor(private route: ActivatedRoute, private categoriesService: CategoriesService) {}
 
-  categories: Category[]
+  categories: Category[];
 
   ngOnInit(): void {
-    this.getCategories()
+    this.getCategories();
   }
 
   getCategories(): void {
-    this.categoriesService.getCategories().subscribe( categories => this.categories = categories)
+    this.categoriesService.getCategories().subscribe( categories => this.categories = categories);
   }
 }
