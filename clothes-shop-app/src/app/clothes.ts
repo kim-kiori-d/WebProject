@@ -1,10 +1,10 @@
-export interface Clothes{ 
+export interface Clothes {
     id: number;
-    name: String;
-    imageLink: String;
-    imageLink2: String;
-    imageLink3: String;
-    price: String;
-    description: String;
+    name: string;
+    imageLink: string;
+    imageLink2: string;
+    imageLink3: string;
+    price: string;
+    description: string;
     category: number;
 }
