@@ -1,5 +1,6 @@
 <div>
-  <h2 id="title">All clothes</h2>
+
+  <h2 id="title">Одежда</h2>
 
   <ul>
     <li *ngFor = "let category of categories"
@@ -17,7 +18,7 @@
           <br>
           <a class="PriceStyle">
             {{clothes.price}} тнг.</a><br>
-          <button (click)= "onAddToCart(clothes)" id="card">Add to Cart</button>
+          <button (click)= "onAddToCart(clothes)" id="card">Добавить</button>
         </p>
 
       </div>

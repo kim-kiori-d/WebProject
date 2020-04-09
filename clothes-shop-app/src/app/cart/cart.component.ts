@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
 import { Clothes } from '../clothes';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -11,10 +12,10 @@ export class CartComponent implements OnInit {
 
   clothesFromCart: Clothes[] = [];
 
-  constructor(private cartService: CartService) { }
+  constructor(private route: ActivatedRoute, private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.getClothesFromCart()
+    this.getClothesFromCart();
   }
 
   getClothesFromCart(): void {

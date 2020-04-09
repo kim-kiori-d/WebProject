@@ -9,16 +9,16 @@ import { Injectable } from '@angular/core';
 export class InMemoryDataService implements InMemoryDbService {
   createDb() {
     const categories = [
-      {id: 1, name: 'Dresses'},
-      {id: 2, name: 'Blouses and tops'},
-      {id: 3, name: 'Skirts'},
-      {id: 4, name: 'Sweaters and hoodies'},
-      {id: 5, name: 'Outerwear'},
-      {id: 6, name: 'Pants and jeans'},
-      {id: 7, name: 'Jackets'},
-      {id: 8, name: 'Overalls'},
-      {id: 9, name: 'Kits'},
-      {id: 10, name: 'Shorts'}
+      {id: 1, name: 'Платья'},
+      {id: 2, name: 'Блузы и топы'},
+      {id: 3, name: 'Юбки'},
+      {id: 4, name: 'Свитеры и толстовки'},
+      {id: 5, name: 'Верхняя одежда'},
+      {id: 6, name: 'Брюки и джинсы'},
+      {id: 7, name: 'Жакеты'},
+      {id: 8, name: 'Комбинезоны'},
+      {id: 9, name: 'Комплекты'},
+      {id: 10, name: 'Шорты'}
     ];
     const clothes = [
       {

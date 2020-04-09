@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-// import {ActivatedRoute} from '@angular/router';
+import { Category } from '../category';
+import { CategoriesService } from '../categories.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navigation',
@@ -8,19 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor(/*private route: ActivatedRoute*/) {
-    // window.onscroll = this.myFunction;
-  }
+
+  constructor(private route: ActivatedRoute, private categoriesService: CategoriesService) {}
+
+  categories: Category[];
 
   ngOnInit(): void {
+    this.getCategories();
   }
 
-  /* myFunction() {
-    if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
-      document.getElementById('nav').className = 'test';
-    } else {
-      document.getElementById('nav').className = '';
-    }
-  } */
-
+  getCategories(): void {
+    this.categoriesService.getCategories().subscribe( categories => this.categories = categories);
+  }
 }

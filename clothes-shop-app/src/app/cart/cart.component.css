@@ -1,19 +1,59 @@
+#title{
+  text-align: center;
+  color: black;
+  letter-spacing: 1px;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+#card{
+  margin-top: 20px;
+}
 .clothesClass {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex: 0 0 30%;
+  margin-top: 15px;
+  cursor: pointer;
+  margin-left: 3%;
 }
-.clothesImage {
-    width: 300px;
-    height: 300px;
+.clothesItem{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  padding-left: 0;
 }
-.clothesDivider {
-    background-color: darkgray;
-    width: 100%;
-    height: 2px;
-    border: none;
+.text{
+  margin-top: 10%;
 }
-#cart{
-  transform: translate(1%, 14%);
+.textItems{
+  margin-left: 10px;
+  text-align: center;
+  color: black;
+  width: 160px;
+}
+#order{
+  margin-left: 22%;
+  height: 35px;
+  width: 65%;
+  background-color: black;
+  border-width: 0px;
+  color: white;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: x-small;
+}
+.clothesImage{
+  width: 100%;
+}
+.delete{
+  font-size: medium;
+  border-width: 0px;
+  background-color: white;
+
+}
+a{
+  color: white;
+  text-decoration: none;
 }

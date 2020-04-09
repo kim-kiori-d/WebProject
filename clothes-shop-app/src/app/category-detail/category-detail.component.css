@@ -1,5 +1,7 @@
+
 #title{
     text-align: center;
+  margin-bottom: 30px;
 }
 .clothesClass {
     display: flex;
@@ -14,7 +16,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    padding-left: 0;
+    padding-left: 10px;
 }
 .clothesImage{
     width: 100%;
@@ -42,13 +44,13 @@ ul{
     font-weight: 900;
 }
 #card{
-    width: 25%;
-    height: 5%;
-    border-width: 1px;
-    border-color: burlywood;
-    border-radius: 5px;
-    color: black;
-    background-color: wheat;
+  width: 25%;
+  height: 5%;
+  border-width: 1px;
+  border-color: burlywood;
+  border-radius: 5px;
+  color: black;
+  background-color: wheat;
 }
 .textBlock{
     text-align: center;
