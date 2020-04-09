@@ -1,8 +1,7 @@
+
 #title{
     text-align: center;
-    color: gray;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 .clothesClass {
     display: flex;
@@ -17,15 +16,10 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    padding-left: 0;
-  padding-top: 20px;
+    padding-left: 10px;
 }
 .clothesImage{
     width: 100%;
-}
-.categoriesListLi {
-    text-align: center;
-    height: 30px;
 }
 .categoryList{
     color: gray;
@@ -37,14 +31,12 @@
 ul{
     display: flex;
     flex-direction: row;
-    margin-left: 0%;
 }
 
 .nameStyle{
     color: black;
     text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
+    font-weight: 500;
 }
 .PriceStyle{
     color: black;
@@ -52,20 +44,17 @@ ul{
     font-weight: 900;
 }
 #card{
-    width: 25%;
-    height: 5%;
-    border-width: 1px;
-    border-color: burlywood;
-    border-radius: 5px;
-    color: black;
-    background-color: wheat;
+  width: 25%;
+  height: 5%;
+  border-width: 1px;
+  border-color: burlywood;
+  border-radius: 5px;
+  color: black;
+  background-color: wheat;
 }
-
 .textBlock{
     text-align: center;
 }
-
-.clothList{
-    transform: translate(0%, 2%);
+.catDet{
+    transform: translate(0, 4%);
 }
-

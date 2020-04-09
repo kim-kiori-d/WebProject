@@ -1,10 +1,13 @@
-    <nav class  = "nav">  
-        <ul class="container">  
-          <li><a [routerLink]="['']">Home</a></li>  
-          <li><a [routerLink]="['categories']">Categories</a></li>  
-          <li><a [routerLink]="['clothes']">All clothes</a></li> 
-          <li><a [routerLink]="['cart']">Cart</a></li>
-          <li><a [routerLink]="['']">Log In</a></li>
-          <li><a [routerLink]="['']">Sign Up</a></li>
-        </ul>  
-    </nav>
+    <nav id= "nav">
+        <ul class="container">
+          <li><a [routerLink]="['']">Главная</a></li>
+          <li class="dropdown"><a>Одежда
+            <div class="dropdown-content" ><div *ngFor = "let category of categories"><a [routerLink]="['/categories/', category.id]">{{category.name}}</a></div></div>
+
+          </a></li>
+          <li><a [routerLink]="['clothes']">Все</a></li>
+          <li><a [routerLink]="['cart']">Корзина</a></li>
+          <li><a [routerLink]="['login']">Войти</a></li>
+          <li><a [routerLink]="['registration']">Зарегистрироваться</a></li>
+        </ul>
+</nav>

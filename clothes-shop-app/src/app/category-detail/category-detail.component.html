@@ -1,0 +1,22 @@
+<div>
+  <h2 id="title">Одежда</h2>
+
+  <div class="window">
+    <div class="clothesItem">
+      <div *ngFor = "let cloth of clothes" class = "clothesClass">
+
+        <img [src]="cloth.image || cloth.imageLink"
+             (mousemove)="cloth.image = cloth.imageLink2 "
+             (mouseleave)="cloth.image = cloth.imageLink" [routerLink]="['/clothes', cloth.id ]" class = "clothesImage">
+        <p (click)= "onSelect(cloth)" class="textBlock">
+          <a [routerLink]="['/clothes', cloth.id ]" class="nameStyle">{{cloth.name}}</a>
+          <br>
+          <a class="PriceStyle">
+            {{cloth.price}} тнг.</a><br>
+          <button (click)= "onAddToCart(cloth)" id="card">Добавить</button>
+        </p>
+
+      </div>
+    </div>
+  </div>
+</div>

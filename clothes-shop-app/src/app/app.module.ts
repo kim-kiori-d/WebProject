@@ -9,6 +9,15 @@ import { ClothesListComponent } from './clothes-list/clothes-list.component';
 import { CartComponent } from './cart/cart.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ClothesDetailComponent } from './clothes-detail/clothes-detail.component';
+import { CategoryDetailComponent } from './category-detail/category-detail.component';
+import { BottomNavigationComponent } from './bottom-navigation/bottom-navigation.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './login/login.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { InMemoryDataService } from './in-memory-data.service';
+
 
 @NgModule({
   declarations: [
@@ -18,11 +27,21 @@ import { ClothesDetailComponent } from './clothes-detail/clothes-detail.componen
     ClothesListComponent,
     CartComponent,
     NavigationComponent,
-    ClothesDetailComponent
+    ClothesDetailComponent,
+    CategoryDetailComponent,
+    BottomNavigationComponent,
+    RegistrationComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    HttpClientModule,
+
+    HttpClientInMemoryWebApiModule.forRoot(
+      InMemoryDataService, { dataEncapsulation: false }
+    )
   ],
   providers: [],
   bootstrap: [AppComponent]
