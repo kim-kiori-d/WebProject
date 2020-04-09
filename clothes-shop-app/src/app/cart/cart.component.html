@@ -1,17 +1,16 @@
+<h2 id="title">Моя корзина</h2>
 <div id = "cart">
-  <h2>Cart</h2>
+  <div class="clothesItem">
   <div *ngFor = "let clothes of clothesFromCart" class = "clothesClass">
-    <p>{{clothes.name}}</p>
-    <h3>
-      <img [src]="clothes.imageLink" class = "clothesImage">
-      <p *ngIf = "clothes.description">
-        Description: {{clothes.description}}
+    <div class="clothesImage"><img [src]="clothes.imageLink" class = "clothesImage"></div>
+    <div class="text"><p class="textItems"> {{clothes.name}}  <button (click)= "deleteClothesFromCart(clothes)" class="delete" ><a [title]="'удалить'">✘</a></button></p>
+      <p class="textItems">Артикул товара: {{clothes.id}}</p>
+      <p class="textItems">
+        Стоимость: {{clothes.price}}
       </p>
-      <p>
-        Price: {{clothes.price}}
-      </p>
-      <button (click)= "deleteClothesFromCart(clothes)" >Delete from cart</button>
-    </h3>
-    <hr class = "clothesDivider">
+
+      <button id="order" [routerLink]="['registration']">ПЕРЕЙТИ К ОФОРМЛЕНИЮ</button>
+    </div>
+    </div>
   </div>
 </div>

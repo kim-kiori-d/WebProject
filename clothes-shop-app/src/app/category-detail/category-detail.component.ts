@@ -4,6 +4,7 @@ import { Clothes } from '../clothes';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../cart.service';
 import { Category } from '../category';
+import {CategoriesService} from '../categories.service';
 
 @Component({
   selector: 'app-category-detail',
@@ -12,13 +13,20 @@ import { Category } from '../category';
 })
 export class CategoryDetailComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private clothesListService: ClothesListService, private cartService: CartService) { }
+  constructor(private route: ActivatedRoute, private clothesListService: ClothesListService, private cartService: CartService, private categoriesService: CategoriesService) {}
+
+  categories: Category[];
   clothes: Clothes[];
   category: Category;
   selectedClothes: Clothes;
 
   ngOnInit(): void {
     this.getListOfClothes();
+    this.getCategories();
+  }
+
+  getCategories(): void {
+    this.categoriesService.getCategories().subscribe( categories => this.categories = categories);
   }
 
   getListOfClothes() {
