@@ -3,7 +3,7 @@
 
   <ul>
     <li *ngFor = "let category of categories"
-        style="list-style-type: none"><a [routerLink]="['/categories/', category.id]" class="categoryList">{{category.name}}</a></li>
+        style="list-style-type: none" class = "categoriesListLi"><a [routerLink]="['/categories/', category.id]" class="categoryList">{{category.name}}</a></li>
   </ul>
   <div class="window">
     <div class="clothesItem">

@@ -20,16 +20,21 @@
 .clothesImage{
     width: 100%;
 }
+.categoriesListLi {
+    text-align: center;
+    height: 30px;
+}
 .categoryList{
     color: gray;
     margin-left: 30px;
     letter-spacing: 2px;
     text-decoration: none;
+    
 }
 ul{
     display: flex;
     flex-direction: row;
-    margin-left: 8%;
+    margin-left: 0%;
 }
 
 .nameStyle{
