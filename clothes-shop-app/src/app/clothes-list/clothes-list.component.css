@@ -1,6 +1,8 @@
 #title{
     text-align: center;
     color: gray;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 .clothesClass {
     display: flex;
@@ -16,6 +18,7 @@
     flex-wrap: wrap;
     justify-content: flex-start;
     padding-left: 0;
+  padding-top: 20px;
 }
 .clothesImage{
     width: 100%;
@@ -29,7 +32,7 @@
     margin-left: 30px;
     letter-spacing: 2px;
     text-decoration: none;
-    
+
 }
 ul{
     display: flex;
@@ -57,6 +60,7 @@ ul{
     color: black;
     background-color: wheat;
 }
+
 .textBlock{
     text-align: center;
 }
