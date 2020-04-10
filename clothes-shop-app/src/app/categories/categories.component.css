@@ -1,13 +1,21 @@
 .categories{
   transform: translate(1%, 20%);
 }
+h2{
+  text-align: center;
+}
 ul{
+  margin-left: 50px;
     list-style: none;
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2;
+  margin-left: 20%;
 }
 li a{
-
     color: black;
-    font-weight: 300;
+    font-weight: 400;
+    font-size: large;
     letter-spacing: 2px;
     text-decoration: none;
     padding-top: 10px;
@@ -15,3 +23,5 @@ li a{
     width: 100%;
     text-align: left;
 }
+
+
