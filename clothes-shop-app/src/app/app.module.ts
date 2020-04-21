@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -33,16 +34,17 @@ import { InMemoryDataService } from './in-memory-data.service';
     RegistrationComponent,
     LoginComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    HttpClientModule,
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        HttpClientModule,
 
-    HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
-    )
-  ],
+        // HttpClientInMemoryWebApiModule.forRoot(
+        //     InMemoryDataService, {dataEncapsulation: false}
+        // ),
+        FormsModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
