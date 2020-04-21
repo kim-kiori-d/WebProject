@@ -34,17 +34,17 @@ import {FormsModule} from '@angular/forms';
     RegistrationComponent,
     LoginComponent,
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        HttpClientModule,
-        HttpClientModule,
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    HttpClientModule,
 
-        // HttpClientInMemoryWebApiModule.forRoot(
-        //     InMemoryDataService, {dataEncapsulation: false}
-        // ),
-        FormsModule
-    ],
+    // HttpClientInMemoryWebApiModule.forRoot(
+    //     InMemoryDataService, {dataEncapsulation: false}
+    // ),
+    FormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
