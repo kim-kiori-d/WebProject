@@ -9,13 +9,13 @@ import {LoginResponse} from './login';
 })
 export class CategoriesService {
 
-  private categoriesUrl = 'api/categories';
+  // private categoriesUrl = 'api/categories';
 
   constructor(
     private http: HttpClient) { }
 
   getCategories(): Observable<Category[]> {
-    return this.http.get<Category[]>(this.categoriesUrl);
+    return this.http.get<Category[]>('http://127.0.0.1:8000/api/categories');
   }
 
   login(username, password): Observable<LoginResponse> {
