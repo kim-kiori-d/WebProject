@@ -16,7 +16,7 @@ export class ClothesListService {
     private http: HttpClient) { }
 
   getClothesList(): Observable<Clothes[]> {
-    return this.http.get<Clothes[]>(this.clothesUrl);
+    return this.http.get<Clothes[]>("http://127.0.0.1:8000/api/clothes");
   }
   getClothesByCategory(id: number): Observable<Clothes[]> {
     const url = `${this.clothesUrl}/?category=${id}`;
