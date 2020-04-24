@@ -9,7 +9,6 @@ import { HttpClient} from '@angular/common/http';
 })
 export class CartService {
 
-  cart: Clothes[] = [];
   constructor(private http: HttpClient) { }
 
   addClothesToCart(clothes: Clothes) {
@@ -21,6 +20,6 @@ export class CartService {
   }
 
   deleteClothesFromCart(clothes: Clothes) {
-    return this.http.delete<Clothes>("http://127.0.0.1:8000/api/card/clothes")
+    return this.http.delete<Clothes>(`http://127.0.0.1:8000/api/card/clothes/${clothes.id}`)
   }
 }

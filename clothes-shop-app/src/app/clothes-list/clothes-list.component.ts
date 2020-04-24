@@ -26,14 +26,12 @@ export class ClothesListComponent implements OnInit {
     // this.getListOfClothes();
   }
 
-
-
   getClothesList(): void {
     this.clothesListService.getClothesList().subscribe( clothes => this.clothesList = clothes);
   }
 
   onAddToCart(clothes: Clothes): void {
-    this.cartService.addClothesToCart(clothes as Clothes).subscribe(cloth => {this.clothesList.push(cloth)});
+    this.cartService.addClothesToCart(clothes).subscribe();
   }
 
 
