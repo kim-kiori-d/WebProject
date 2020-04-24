@@ -34,17 +34,18 @@ class Category(models.Model):
         }
 
 class Clothes(models.Model):
-    name =  models.CharField(max_length=100, default = "default")
-    imageLink = models.CharField(max_length=100, default = "default")
-    imageLink2 = models.CharField(max_length=100, default = "default")
-    imageLink3 = models.CharField(max_length=100, default = "default")
-    price = models.CharField(max_length=100, default = "default")
-    description = models.CharField(max_length=100, default = "description")
+    name =  models.CharField(max_length=500, default='')
+    imageLink = models.TextField( default='')
+    imageLink2 = models.TextField(default='')
+    imageLink3 = models.TextField(default='')
+    price = models.CharField(max_length=100, default='')
+    description = models.TextField(default="description")
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
 
     def to_json(self):
             return {
                 'id': self.id,
+                'name':self.name,
                 'imageLink': self.imageLink,
                 'imageLink2': self.imageLink2,
                 'imageLink3': self.imageLink3,
@@ -52,3 +53,6 @@ class Clothes(models.Model):
                 'description': self.description,
                 'category': self.category.id,
         }
+
+class Card(models.Model):
+    clothes = models.ManyToManyField(Clothes)
