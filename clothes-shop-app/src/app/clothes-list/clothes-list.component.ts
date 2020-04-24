@@ -23,25 +23,19 @@ export class ClothesListComponent implements OnInit {
 
   ngOnInit(): void {
     this.getClothesList();
-    this.getCategories();
     // this.getListOfClothes();
   }
 
-  getCategories(): void {
-    this.categoriesService.getCategories().subscribe( categories => this.categories = categories);
-  }
-  getListOfClothes() {
-    const id = +this.route.snapshot.paramMap.get('id');
-    this.clothesListService.getClothesByCategory(id).subscribe(clothes => this.clothes = clothes);
-  }
+
 
   getClothesList(): void {
     this.clothesListService.getClothesList().subscribe( clothes => this.clothesList = clothes);
   }
 
   onAddToCart(clothes: Clothes): void {
-    this.cartService.addClothesToCart(clothes);
+    this.cartService.addClothesToCart(clothes as Clothes).subscribe(cloth => {this.clothesList.push(cloth)});
   }
+
 
   onSelect(clothes: Clothes): void {
     this.selectedClothes = clothes;
