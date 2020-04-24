@@ -24,7 +24,7 @@ export class ClothesListComponent implements OnInit {
   ngOnInit(): void {
     this.getClothesList();
     this.getCategories();
-    // this.getListOfClothes();
+    this.getListOfClothes();
   }
 
   getCategories(): void {
