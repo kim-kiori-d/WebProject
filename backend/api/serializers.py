@@ -19,6 +19,12 @@ class CategoriesListSerializer(serializers.Serializer):
 class ClothesListSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField()
+    imageLink = serializers.CharField()
+    imageLink2 = serializers.CharField()
+    imageLink3 = serializers.CharField()
+    price = serializers.CharField()
+    description = serializers.CharField()
+    category = serializers.PrimaryKeyRelatedField(many=False, read_only=True)
 
     def create(self, validated_data):
         clothes = Clothes()
