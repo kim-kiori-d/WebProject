@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Clothes } from '../clothes';
 import { ClothesListService } from '../clothes-list.service';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../cart.service';
 import {CategoriesService} from '../categories.service';
 import {Category} from '../category';
@@ -13,7 +13,7 @@ import {Category} from '../category';
 export class ClothesDetailComponent implements OnInit {
 
   clothesList: Clothes[];
-  selectedClothesId: String;
+  selectedClothesId: string;
   categories: Category[];
 
   constructor(private route: ActivatedRoute, private clothesListService: ClothesListService, private cartService: CartService, private categoriesService: CategoriesService) { }
@@ -22,7 +22,7 @@ export class ClothesDetailComponent implements OnInit {
     this.getClothesList();
     this.getCategories();
     this.route.paramMap.subscribe(params => {
-      this.selectedClothesId = params.get("clothesId");
+      this.selectedClothesId = params.get('clothesId');
     });
   }
 
@@ -31,7 +31,7 @@ getCategories(): void {
   this.categoriesService.getCategories().subscribe( categories => this.categories = categories);
 }
   getClothesList(): void {
-    this.clothesListService.getClothesList().subscribe( clothes => this.clothesList = clothes)
+    this.clothesListService.getClothesList().subscribe( clothes => this.clothesList = clothes);
   }
 
   onAddToCart(clothes: Clothes): void {
