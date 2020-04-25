@@ -18,34 +18,13 @@ class CategoriesListSerializer(serializers.Serializer):
         return instance
 
 
-class ClothesListSerializer(serializers.Serializer):
-    id = serializers.IntegerField(read_only=True)
-    name = serializers.CharField()
-    imageLink = serializers.CharField()
-    imageLink2 = serializers.CharField()
-    imageLink3 = serializers.CharField()
-    price = serializers.CharField()
-    description = serializers.CharField()
-    category = serializers.PrimaryKeyRelatedField(many=False, read_only=True)
+class ClothesListSerializer(serializers.ModelSerializer):
+    category = serializers.ReadOnlyField(source='category.id')
 
-    def create(self, validated_data):
-        clothes = Clothes(name=validated_data['name'], imageLink=validated_data['imageLink'],
-                          imageLink2=validated_data['imageLink2'], imageLink3=validated_data['imageLink3'],
-                          price=validated_data['price'], description=validated_data['description'],
-                          category=validated_data['category'])
-        clothes.save()
-        return clothes
+    class Meta:
+        model = Clothes
+        fields = "__all__"
 
-    def update(self, instance, validated_data):
-        instance.name = validated_data.get('name')
-        instance.imageLink = validated_data.get('imageLink')
-        instance.imageLink2 = validated_data.get('imageLink2')
-        instance.imageLink3 = validated_data.get('imageLink3')
-        instance.price = validated_data.get('price')
-        instance.description = validated_data.get('description')
-        instance.category = validated_data.get('category')
-        instance.save()
-        return instance
 
 class CardSerializer(serializers.ModelSerializer):
     clothes = ClothesListSerializer(many=True)
