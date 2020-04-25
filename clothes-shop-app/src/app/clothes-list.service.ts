@@ -19,7 +19,7 @@ export class ClothesListService {
     return this.http.get<Clothes[]>(this.clothesUrl);
   }
   getClothesByCategory(id: number): Observable<Clothes[]> {
-    return this.http.get<Clothes[]>(`http://127.0.0.1:8000/api/categories/${id}clothes`);
+    return this.http.get<Clothes[]>(`http://127.0.0.1:8000/api/categories/${id}/clothes`);
   }
   getCategoryName(id: number): Observable<any> {
     const url = `${this.categoriesUrl}/${id}`;

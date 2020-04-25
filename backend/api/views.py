@@ -106,7 +106,8 @@ class ClothInCard(APIView):
         card = Card.objects.get(id=2)
         card.clothes.remove(cloth)
         return Response({'DELETED': True})
-# fbv
+
+
 @api_view(['GET'])
 def clothesByCategory(request, id):
     if request.method == 'GET':
