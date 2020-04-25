@@ -35,7 +35,7 @@ getCategories(): void {
   }
 
   onAddToCart(clothes: Clothes): void {
-    this.cartService.addClothesToCart(clothes);
+    this.cartService.addClothesToCart(clothes as Clothes).subscribe(cloth => {this.clothesList.push(cloth)});
   }
 
 }

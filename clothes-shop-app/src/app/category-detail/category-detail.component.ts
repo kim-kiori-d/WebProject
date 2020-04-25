@@ -31,7 +31,7 @@ export class CategoryDetailComponent implements OnInit {
     this.clothesListService.getClothesByCategory(id).subscribe(clothes => this.clothes = clothes);
   }
   onAddToCart(clothes: Clothes): void {
-    this.cartService.addClothesToCart(clothes);
+    this.cartService.addClothesToCart(clothes).subscribe();
   }
   onSelect(clothes: Clothes): void {
     this.selectedClothes = clothes;

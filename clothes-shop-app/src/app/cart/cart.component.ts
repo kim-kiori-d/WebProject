@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CartComponent implements OnInit {
 
-  clothesFromCart: Clothes[] = [];
+  clothesFromCart: Clothes[];
 
   constructor(private route: ActivatedRoute, private cartService: CartService) { }
 
@@ -23,6 +23,8 @@ export class CartComponent implements OnInit {
   }
 
   deleteClothesFromCart(clothes: Clothes) {
-    this.cartService.deleteClothesFromCart(clothes)
+    this.clothesFromCart = this.clothesFromCart.filter(c => c !== clothes);
+    this.cartService.deleteClothesFromCart(clothes).subscribe()
   }
+
 }
