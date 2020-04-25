@@ -8,15 +8,15 @@ import { HttpClient} from '@angular/common/http';
 })
 export class ClothesListService {
 
-  private clothesUrl = 'api/clothes';
-  private categoriesUrl = 'api/categories';
+  private clothesUrl = 'http://127.0.0.1:8000/api/clothes';
+  private categoriesUrl = 'http://127.0.0.1:8000/api/categories';
   clothes: Clothes[];
 
   constructor(
     private http: HttpClient) { }
 
   getClothesList(): Observable<Clothes[]> {
-    return this.http.get<Clothes[]>("http://127.0.0.1:8000/api/clothes");
+    return this.http.get<Clothes[]>(this.clothesUrl);
   }
   getClothesByCategory(id: number): Observable<Clothes[]> {
     return this.http.get<Clothes[]>(`http://127.0.0.1:8000/api/categories/${id}clothes`);

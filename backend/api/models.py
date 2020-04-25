@@ -1,6 +1,5 @@
 from django.db import models
 
-
 class User(models.Model):
     username = models.CharField(max_length=100)
     password = models.CharField(max_length=50)
@@ -33,6 +32,10 @@ class Category(models.Model):
             'name': self.name,
         }
 
+class clothesByCategory(models.Manager):
+    def get_queryset(self, id):
+        return super(clothesByCategory, self).get_queryset().filter(name="Платье The one by Lichi")
+
 class Clothes(models.Model):
     name =  models.CharField(max_length=500, default='')
     imageLink = models.TextField( default='')
@@ -45,7 +48,6 @@ class Clothes(models.Model):
     def to_json(self):
             return {
                 'id': self.id,
-                'name':self.name,
                 'imageLink': self.imageLink,
                 'imageLink2': self.imageLink2,
                 'imageLink3': self.imageLink3,

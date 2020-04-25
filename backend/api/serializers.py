@@ -26,6 +26,7 @@ class ClothesListSerializer(serializers.Serializer):
     imageLink3 = serializers.CharField()
     price = serializers.CharField()
     description = serializers.CharField()
+    category = serializers.PrimaryKeyRelatedField(many=False, read_only=True)
 
     def create(self, validated_data):
         clothes = Clothes(name=validated_data['name'], imageLink=validated_data['imageLink'],
