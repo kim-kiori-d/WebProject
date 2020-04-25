@@ -32,9 +32,9 @@ class Category(models.Model):
             'name': self.name,
         }
 
-class clothesByCategory(models.Manager):
-    def get_queryset(self, id):
-        return super(clothesByCategory, self).get_queryset().filter(name="Платье The one by Lichi")
+class newClothesManager(models.Manager):
+    def get_new_clothes(self):
+        return super(newClothesManager, self).get_queryset().filter(new=True)
 
 class Clothes(models.Model):
     name =  models.CharField(max_length=500, default='')
@@ -43,7 +43,10 @@ class Clothes(models.Model):
     imageLink3 = models.TextField(default='')
     price = models.CharField(max_length=100, default='')
     description = models.TextField(default="description")
+    new = models.BooleanField(default=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
+
+    objects = newClothesManager()
 
     def to_json(self):
             return {

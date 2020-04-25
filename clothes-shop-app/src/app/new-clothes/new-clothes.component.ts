@@ -6,13 +6,12 @@ import { CartService } from '../cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { CategoriesService } from '../categories.service';
 
-
 @Component({
-  selector: 'app-clothes-list',
-  templateUrl: './clothes-list.component.html',
-  styleUrls: ['./clothes-list.component.css']
+  selector: 'app-new-clothes',
+  templateUrl: './new-clothes.component.html',
+  styleUrls: ['./new-clothes.component.css']
 })
-export class ClothesListComponent implements OnInit {
+export class NewClothesComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private clothesListService: ClothesListService, private cartService: CartService, private categoriesService: CategoriesService) { }
 
@@ -22,12 +21,12 @@ export class ClothesListComponent implements OnInit {
   selectedClothes: Clothes;
 
   ngOnInit(): void {
-    this.getClothesList();
+    this.getNewClothesList();
     // this.getListOfClothes();
   }
 
-  getClothesList(): void {
-    this.clothesListService.getClothesList().subscribe( clothes => this.clothesList = clothes);
+  getNewClothesList(): void {
+    this.clothesListService.getNewClothesList().subscribe( clothes => this.clothesList = clothes);
   }
 
   onAddToCart(clothes: Clothes): void {
