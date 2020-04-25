@@ -13,7 +13,7 @@ urlpatterns = [
     path('card/clothes', clothes_of_card),
     path('card/clothes/<int:pk>', ClothInCard.as_view()),
     path('categories', CategoriesListAPIView.as_view()),
-    path('clothes', ClothesListAPIView.as_view()),
+    # path('clothes', ClothesListAPIView.as_view()),
     path('clothes/<int:id>', clothesByCategory),
     path('categories/<int:id>', category),
     path('clothes/new', newClothesList.as_view()),
