@@ -1,0 +1,32 @@
+<div>
+
+    <h2 id="title">Одежда</h2>
+  
+    <ul>
+      <li *ngFor = "let category of categories"
+          style="list-style-type: none" class = "categoriesListLi"><a [routerLink]="['/categories/', category.id]" class="categoryList">{{category.name}}</a></li>
+    </ul>
+    <div class="window">
+      <div class="clothesItem">
+        <div *ngFor = "let clothes of clothesList" class = "clothesClass">
+          <div class="hovereffect">
+          <img [src]="clothes.image || clothes.imageLink" class = "clothesImage"
+               (mousemove)="clothes.image = clothes.imageLink2"
+               (mouseleave)="clothes.image = clothes.imageLink" [routerLink]="['/clothes', clothes.id ]" >
+            <div class="overlay">
+              <button (click)= "onAddToCart(clothes)" id="card"><h2>Добавить</h2></button>
+            </div>
+          <p (click)= "onSelect(clothes)" class="textBlock">
+            <a [routerLink]="['/clothes', clothes.id ]" class="nameStyle">{{clothes.name}}</a>
+            <br>
+            <a class="PriceStyle">
+              {{clothes.price}} тнг.</a><br>
+          </p>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  </div>
+  

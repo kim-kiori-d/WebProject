@@ -25,4 +25,8 @@ export class ClothesListService {
     const url = `${this.categoriesUrl}/${id}`;
     return this.http.get(url);
   }
+  getNewClothesList(): Observable<Clothes[]> {
+    return this.http.get<Clothes[]>("http://127.0.0.1:8000/api/clothes/new");
+  }
+  
 }

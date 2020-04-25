@@ -40,11 +40,4 @@ class Migration(migrations.Migration):
             name='price',
             field=models.CharField(default='', max_length=100),
         ),
-        migrations.CreateModel(
-            name='Card',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('clothes', models.ManyToManyField(to='api.Clothes')),
-            ],
-        ),
     ]

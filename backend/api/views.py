@@ -118,3 +118,10 @@ def clothesByCategory(request, id):
                 serializer = ClothesListSerializer(clothes)
                 clothesByCategory.append(serializer.data)
         return Response(clothesByCategory)
+
+
+class newClothesList(APIView):
+    def get(self, request):
+        clothes_list = Clothes.objects.get_new_clothes()
+        serializer = ClothesListSerializer(clothes_list, many=True)
+        return Response(serializer.data)
