@@ -19,7 +19,7 @@ export class CartComponent implements OnInit {
   }
 
   getClothesFromCart(): void {
-    this.cartService.getClothesFromCart().subscribe( clothes => this.clothesFromCart = clothes)
+    this.cartService.getClothesFromCart().subscribe( clothes => this.clothesFromCart = clothes);
   }
 
   deleteClothesFromCart(clothes: Clothes) {

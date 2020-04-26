@@ -1,5 +1,5 @@
-from api.models import Category, Clothes, Card
-from api.serializers import CategoriesListSerializer, ClothesListSerializer,  CardSerializer
+from api.models import Category, Clothes, Card, User
+from api.serializers import CategoriesListSerializer, ClothesListSerializer,  CardSerializer, UserSerializer
 from rest_framework import status, generics
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
@@ -133,4 +133,18 @@ class newClothesList(APIView):
     def get(self, request):
         clothes_list = Clothes.objects.get_new_clothes()
         serializer = ClothesListSerializer(clothes_list, many=True)
+        return Response(serializer.data)
+
+
+class newUsers(APIView):
+    def post(self, request):
+        serializer = UserSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+    def get(self, request):
+        user_list = User.objects.all()
+        serializer = UserSerializer(user_list, many=True)
         return Response(serializer.data)

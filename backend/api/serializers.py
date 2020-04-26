@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import Category, Clothes, Card
+from api.models import Category, Clothes, Card, User
 
 
 class CategoriesListSerializer(serializers.Serializer):
@@ -34,5 +34,14 @@ class CardSerializer(serializers.ModelSerializer):
         fields = {'id', 'clothes'}
 
 
+class UserSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    username = serializers.CharField()
+    password = serializers.CharField()
 
-
+    def create(self, validated_data):
+        user = User()
+        user.username = validated_data.get('username')
+        user.password = validated_data.get('password')
+        user.save()
+        return user
