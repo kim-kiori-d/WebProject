@@ -12,14 +12,14 @@ export class CartService {
   constructor(private http: HttpClient) { }
 
   addClothesToCart(clothes: Clothes) {
-    return this.http.post<Clothes>("http://127.0.0.1:8000/api/card/clothes", clothes);
+    return this.http.post<Clothes>(`http://127.0.0.1:8000/api/card/clothes/${clothes.id}`, clothes);
   }
 
   getClothesFromCart(): Observable<Clothes[]> {
-    return this.http.get<Clothes[]>("http://127.0.0.1:8000/api/card/clothes");
+    return this.http.get<Clothes[]>('http://127.0.0.1:8000/api/card/clothes');
   }
 
   deleteClothesFromCart(clothes: Clothes) {
-    return this.http.delete<Clothes>(`http://127.0.0.1:8000/api/card/clothes/${clothes.id}`)
+    return this.http.delete<Clothes>(`http://127.0.0.1:8000/api/card/clothes/${clothes.id}`);
   }
 }
