@@ -6,6 +6,7 @@ from rest_framework import status, generics
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from django.contrib.auth.models import User
 
 
 @api_view(['GET', 'PUT', 'DELETE'])
@@ -76,7 +77,11 @@ class ClothDetails(generics.RetrieveUpdateDestroyAPIView):
 @api_view(['GET'])
 def clothes_of_card(request):
     try:
-        card = Card.objects.get(id=request.user.id)
+        username = request.user.username
+        password = request.user.password
+        user = User.objects.get(username=username, password=password)
+        card = Card.objects.get(id=user.id)
+        print(user.id)
     except Card.DoesNotExist as e:
         return Response({'error': str(e)})
     if request.method == 'GET':
@@ -108,16 +113,16 @@ class ClothInCard(APIView):
 
     def delete(self, request, pk):
         cloth = self.get_object(pk)
-        card = Card.objects.get(id=request.user.id)
+        print(request.user.id)
+        card = Card.objects.get(id=request.user.pk)
         card.clothes.remove(cloth)
         return Response({'DELETED': True})
 
     def post(self, request, pk):
         cloth = self.get_object(pk)
-        card = Card.objects.get(id=request.user.id)
+        card = Card.objects.get(id=self.request.user.pk)
         card.clothes.add(cloth)
         return Response({'ADDED': True})
-    permission_classes = (IsAuthenticated,)
 
 
 @api_view(['GET'])

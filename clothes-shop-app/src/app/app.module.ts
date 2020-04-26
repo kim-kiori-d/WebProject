@@ -13,7 +13,9 @@ import { CategoryDetailComponent } from './category-detail/category-detail.compo
 import { BottomNavigationComponent } from './bottom-navigation/bottom-navigation.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
+import {AuthInterceptor} from './auth.interceptor';
 
+import {HTTP_INTERCEPTORS, HttpInterceptor} from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
@@ -47,7 +49,13 @@ import { NewClothesComponent } from './new-clothes/new-clothes.component';
     // ),
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

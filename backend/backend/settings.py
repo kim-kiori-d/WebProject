@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 import datetime
 import os
-
+from corsheaders.defaults import default_methods
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 from django.conf import settings
 
@@ -57,9 +57,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-
 ]
-
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
@@ -126,7 +124,10 @@ USE_L10N = True
 USE_TZ = True
 
 CORS_ORIGIN_ALLOW_ALL = True
-
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:4200",
+    "http://127.0.0.1:8000",
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
@@ -143,7 +144,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.BasicAuthentication',
     ),
 }
-
 JWT_AUTH = {
     'JWT_ENCODE_HANDLER':
     'rest_framework_jwt.utils.jwt_encode_handler',
@@ -168,7 +168,7 @@ JWT_AUTH = {
     'JWT_VERIFY': True,
     'JWT_VERIFY_EXPIRATION': True,
     'JWT_LEEWAY': 0,
-    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=2),
+    'JWT_EXPIRATION_DELTA': datetime.timedelta(days=300),
     'JWT_AUDIENCE': None,
     'JWT_ISSUER': None,
 

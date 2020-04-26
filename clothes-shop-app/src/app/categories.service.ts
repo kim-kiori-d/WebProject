@@ -19,7 +19,7 @@ export class CategoriesService {
   }
 
   login(username, password): Observable<LoginResponse> {
-    return this.http.post<LoginResponse>('http://localhost:8000/api/login/', {
+    return this.http.post<LoginResponse>('http://127.0.0.1:8000/api/login/', {
       username,
       password
     });

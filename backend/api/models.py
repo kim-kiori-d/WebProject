@@ -68,5 +68,5 @@ class Clothes(models.Model):
 
 class Card(models.Model):
     clothes = models.ManyToManyField(Clothes)
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=2)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
 
