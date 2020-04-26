@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from api.models import Category, Clothes, Card
-
+from django.contrib.auth.models import User
 
 class CategoriesListSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
@@ -23,15 +23,21 @@ class ClothesListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Clothes
-        fields = "__all__"
+        fields = ('id', 'name', 'imageLink', 'imageLink2', 'imageLink3', 'price', 'description', 'category')
 
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'username', 'email',)
 
 class CardSerializer(serializers.ModelSerializer):
+    id = serializers.IntegerField(read_only=True)
     clothes = ClothesListSerializer(many=True)
+    created_by = serializers.ReadOnlyField(source='user.id')
 
     class Meta:
         model = Card
-        fields = {'id', 'clothes'}
+        fields = ('id', 'clothes', 'created_by')
 
 
 

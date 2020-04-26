@@ -1,16 +1,18 @@
 from django.db import models
+from rest_framework.permissions import IsAuthenticated
+from django.contrib.auth.models import User
 
 
-class User(models.Model):
-    username = models.CharField(max_length=100)
-    password = models.CharField(max_length=50)
-
-    def to_json(self):
-        return {
-            'id': self.id,
-            'username': self.username,
-            'password': self.password
-        }
+# class User(models.Model):
+#     username = models.CharField(max_length=100)
+#     password = models.CharField(max_length=50)
+#
+#     def to_json(self):
+#         return {
+#             'id': self.id,
+#             'username': self.username,
+#             'password': self.password
+#         }
 
 
 class Manager(models.Model):
@@ -66,3 +68,5 @@ class Clothes(models.Model):
 
 class Card(models.Model):
     clothes = models.ManyToManyField(Clothes)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=2)
+

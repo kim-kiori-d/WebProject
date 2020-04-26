@@ -1,3 +1,5 @@
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.decorators import api_view, permission_classes
 from api.models import Category, Clothes, Card
 from api.serializers import CategoriesListSerializer, ClothesListSerializer,  CardSerializer
 from rest_framework import status, generics
@@ -74,7 +76,7 @@ class ClothDetails(generics.RetrieveUpdateDestroyAPIView):
 @api_view(['GET'])
 def clothes_of_card(request):
     try:
-        card = Card.objects.get(id=2)
+        card = Card.objects.get(id=request.user.id)
     except Card.DoesNotExist as e:
         return Response({'error': str(e)})
     if request.method == 'GET':
@@ -106,15 +108,16 @@ class ClothInCard(APIView):
 
     def delete(self, request, pk):
         cloth = self.get_object(pk)
-        card = Card.objects.get(id=2)
+        card = Card.objects.get(id=request.user.id)
         card.clothes.remove(cloth)
         return Response({'DELETED': True})
 
     def post(self, request, pk):
         cloth = self.get_object(pk)
-        card = Card.objects.get(id=2)
+        card = Card.objects.get(id=request.user.id)
         card.clothes.add(cloth)
         return Response({'ADDED': True})
+    permission_classes = (IsAuthenticated,)
 
 
 @api_view(['GET'])

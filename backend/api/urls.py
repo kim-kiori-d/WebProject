@@ -1,9 +1,10 @@
 from django.contrib import admin
 from django.urls import path
 from api import views
-from api.views import clothes, clothes_of_category, ClothDetails, clothes_of_card, ClothInCard
-from api.views import clothesByCategory, category, ClothesListAPIView, CategoriesListAPIView, newClothesList
+from api.views import clothes, clothes_of_category, ClothDetails, ClothInCard
+from api.views import clothesByCategory, category, ClothesListAPIView, CategoriesListAPIView, newClothesList, clothes_of_card
 from rest_framework_jwt.views import obtain_jwt_token
+from api.auth import login,logout, UserList
 
 urlpatterns = [
     path('login/', obtain_jwt_token),
@@ -17,4 +18,7 @@ urlpatterns = [
     path('clothes/<int:id>', clothesByCategory),
     path('categories/<int:id>', category),
     path('clothes/new', newClothesList.as_view()),
+    #path('login/', login),
+    path('logout/', logout),
+    path('users/', UserList.as_view()),
 ]
