@@ -12,7 +12,7 @@ export class CartService {
   constructor(private http: HttpClient) { }
 
   addClothesToCart(clothes: Clothes) {
-    return this.http.post<Clothes>(`http://127.0.0.1:8000/api/card/clothes/${clothes.id}`, clothes);
+    return this.http.post<Clothes>('http://127.0.0.1:8000/api/card/clothes', clothes);
   }
 
   getClothesFromCart(): Observable<Clothes[]> {
