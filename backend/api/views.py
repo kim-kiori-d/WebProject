@@ -1,5 +1,5 @@
 from api.models import Category, Clothes, Card
-from api.serializers import CategoriesListSerializer, ClothesListSerializer, CardSerializer
+from api.serializers import CategoriesListSerializer, ClothesListSerializer,  CardSerializer
 from rest_framework import status, generics
 from rest_framework.decorators import api_view
 from rest_framework.views import APIView
@@ -71,7 +71,7 @@ class ClothDetails(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = ClothesListSerializer
 
 
-@api_view(['GET', 'POST'])
+@api_view(['GET'])
 def clothes_of_card(request):
     try:
         card = Card.objects.get(id=2)
@@ -81,8 +81,6 @@ def clothes_of_card(request):
         clothes = card.clothes.all()
         serializer = ClothesListSerializer(clothes, many=True)
         return Response(serializer.data)
-    elif request.method == 'POST':
-        serializer = ClothesListSerializer(data=request.data)
 
 
 class CategoriesListAPIView(APIView):
@@ -111,6 +109,12 @@ class ClothInCard(APIView):
         card = Card.objects.get(id=2)
         card.clothes.remove(cloth)
         return Response({'DELETED': True})
+
+    def post(self, request, pk):
+        cloth = self.get_object(pk)
+        card = Card.objects.get(id=2)
+        card.clothes.add(cloth)
+        return Response({'ADDED': True})
 
 
 @api_view(['GET'])
