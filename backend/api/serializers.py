@@ -2,6 +2,7 @@ from rest_framework import serializers
 from api.models import Category, Clothes, Card
 from django.contrib.auth.models import User
 
+
 class CategoriesListSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField()
@@ -25,10 +26,12 @@ class ClothesListSerializer(serializers.ModelSerializer):
         model = Clothes
         fields = ('id', 'name', 'imageLink', 'imageLink2', 'imageLink3', 'price', 'description', 'category')
 
+
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username', 'email',)
+
 
 class CardSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
@@ -38,7 +41,3 @@ class CardSerializer(serializers.ModelSerializer):
     class Meta:
         model = Card
         fields = ('id', 'clothes', 'created_by')
-
-
-
-
